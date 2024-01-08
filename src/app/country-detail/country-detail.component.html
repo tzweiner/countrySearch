@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Country Detail</h2>
+  <div class="well" *ngIf="$data | async as data else nodata">
+    Found data!
+  </div>
+  <ng-template #nodata>
+    No data found.
+  </ng-template>
+</div>

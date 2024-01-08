@@ -10,7 +10,6 @@ import {CountryShortResponse} from "../country-short-response.model";
 })
 export class CountryListComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription = new Subscription();
-  private allCountriesSubject: Subject<CountryShortResponse> = new Subject();
 
   public data$: Observable<CountryShortResponse[]>;
 

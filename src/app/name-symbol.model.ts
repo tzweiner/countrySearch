@@ -1,4 +1,4 @@
 export interface NameSymbol {
-  name: string
-  symbol: string
+  name: string;
+  symbol: string;
 }
