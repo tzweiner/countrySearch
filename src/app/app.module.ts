@@ -5,14 +5,15 @@ import {AppRoutingModule} from "./app.routes";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { StubComponent } from './stub/stub.component';
+import { CountryListComponent } from './country-list/country-list.component';
+import {CountryService} from "./country.service";
 
 @NgModule({
-  declarations: [AppComponent, StubComponent],
+  declarations: [AppComponent, CountryListComponent],
   imports: [
     CommonModule, AppRoutingModule, BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule,
   ],
   bootstrap: [AppComponent],
-  providers: [],
+  providers: [CountryService],
 })
 export class AppModule { }

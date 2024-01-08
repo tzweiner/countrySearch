@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="well" *ngIf="data$ | async as data else nodata">
+    <h2>Countries List ({{data.length}} total)</h2>
+    <table class="table">
+      <thead>
+        <th>Country Name</th>
+        <th>Capital</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of data">
+          <td>{{country.name.common}}</td>
+          <td>
+            <span *ngFor="let capital of country.capital; let c = count; let i = index;">
+             {{capital}}{{(i < c-1 ? ', ' : '')}}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #nodata>No data to display.</ng-template>
+</div>

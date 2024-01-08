@@ -1,10 +1,10 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from "@angular/core";
-import {StubComponent} from "./stub/stub.component";
+import {CountryListComponent} from "./country-list/country-list.component";
 
 export const routes: Routes = [
   { path: '**', redirectTo: 'search' },
-  { path: 'search', component: StubComponent },
+  { path: 'search', component: CountryListComponent },
 ];
 
 @NgModule({
