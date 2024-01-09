@@ -5,7 +5,7 @@ import {CountryShortResponse} from "./country-short-response.model";
 import {ActivatedRouteSnapshot, ResolveFn} from "@angular/router";
 import {CountryCca2Response} from "./country-cca2-response.model";
 
-export const countryDetailResolver: ResolveFn<CountryCca2Response> =
+export const countryDetailResolver: ResolveFn<CountryCca2Response[]> =
   (route: ActivatedRouteSnapshot) => {
   return inject(CountryService).getCountryByCca2(route?.paramMap?.get("cca2"));
   }
@@ -23,11 +23,11 @@ export class CountryService {
     return this.http$.get<CountryShortResponse[]>(this.short_url);
   }
 
-  public getCountryByCca2(cca2?: string | null | undefined): Observable<CountryCca2Response> {
+  public getCountryByCca2(cca2?: string | null | undefined): Observable<CountryCca2Response[]> {
     if (!cca2) {
       return EMPTY;
     }
-    return this.http$.get<CountryCca2Response>(this.cca2_url + cca2);
+    return this.http$.get<CountryCca2Response[]>(this.cca2_url + cca2);
   }
 
 }

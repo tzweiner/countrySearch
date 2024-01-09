@@ -1,9 +1,53 @@
-<div class="container">
-  <h2>Country Detail</h2>
-  <div class="well" *ngIf="$data | async as data else nodata">
-    Found data!
+<div class="container" *ngIf="$data | async as countries else nodata">
+  <div class="well" *ngFor="let country of countries">
+    <h2>Country Detail</h2>
+    <h3>{{country.name.common}}</h3>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Independent?</th>
+          <td>{{country.independent == true}}</td>
+        </tr>
+        <tr>
+          <th>UN Member?</th>
+          <td>{{country.unMember == true}}</td>
+        </tr>
+        <tr>
+          <th>Capital</th>
+          <td>
+            <span *ngFor="let capital of country.capital; let c = count; let i = index;">
+               {{capital}}{{(i < c-1 ? ', ' : '')}}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Languages</th>
+          <td>
+            <span *ngFor="let opt of country.languages | keyvalue; let c = count; let i = index;">
+               {{country.languages[opt.key] | titlecase}}{{(i < c-1 ? ', ' : '')}}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Flag</th>
+          <td>
+            <div><img [src]="getFlagUrl(country)"></div>
+            <div class="short-description">{{getFlagDescription(country)}}</div>
+          </td>
+        </tr>
+        <tr>
+          <th>Population</th>
+          <td>{{country.population | number: '1.0-0'}}</td>
+        </tr>
+        <tr>
+          <th>Start of Week</th>
+          <td>{{country.startOfWeek | titlecase}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary" routerLink="/" routerLinkActive="active">Back to list</button>
   </div>
-  <ng-template #nodata>
-    No data found.
-  </ng-template>
 </div>
+<ng-template #nodata>
+  No data found for {{code || '--'}}.
+</ng-template>
