@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import {CountryService} from "../country.service";
-import {count, map, Observable} from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import { map, Observable} from "rxjs";
 import {CountryCca2Response} from "../country-cca2-response.model";
 import {ActivatedRoute} from "@angular/router";
 
@@ -9,7 +8,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './country-detail.component.html',
   styleUrl: './country-detail.component.less'
 })
-export class CountryDetailComponent {
+export class CountryDetailComponent implements OnInit {
 
   public $data: Observable<CountryCca2Response[]> = new Observable<CountryCca2Response[]>();
   public code: string | null;

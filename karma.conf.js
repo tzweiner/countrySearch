@@ -67,6 +67,13 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser instances should be started simultaneously
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    }
   })
 }
