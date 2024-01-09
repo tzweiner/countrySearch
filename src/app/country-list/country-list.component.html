@@ -8,7 +8,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let country of data">
-          <td>{{country.name.common}}</td>
+          <td><a routerLink='{{"/search/" + country.cca2}}' routerLinkActive="active">{{country.name.common}}</a></td>
           <td>
             <span *ngFor="let capital of country.capital; let c = count; let i = index;">
              {{capital}}{{(i < c-1 ? ', ' : '')}}
