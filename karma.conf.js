@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Mon Jan 08 2024 21:38:54 GMT-0500 (Eastern Standard Time)
+// Generated on Tue Jan 09 2024 16:46:22 GMT-0500 (Eastern Standard Time)
 
 module.exports = function(config) {
   config.set({
@@ -53,7 +53,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
@@ -67,13 +67,6 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser instances should be started simultaneously
-    concurrency: Infinity,
-
-    customLaunchers: {
-      ChromeHeadlessNoSandbox: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    }
+    concurrency: Infinity
   })
 }
